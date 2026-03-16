@@ -56,7 +56,7 @@ def get_resume_section_definition(raw_section_name: str) -> BaseResumeSection:
     return resume_section
 
 
-def build_resume(resume_path: Path) -> FullResume:
+def build_resume(resume_path: Path = RESUME_PATH) -> FullResume:
     raw_resume = _load_resume(resume_path=resume_path)
 
     resume = dict()

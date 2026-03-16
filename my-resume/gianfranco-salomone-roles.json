@@ -1,0 +1,16 @@
+[
+    {
+        "role": "python-dev",
+        "include": [
+            "EPIC iO",
+            "MecanTronic"
+        ]
+    },
+    {
+        "role": "teacher",
+        "include": [
+            "UNLZ - UNGS - FIE - UB",
+            "Facultad de Ingeniería del Ejército"
+        ]
+    }
+]
