@@ -7,6 +7,12 @@ Self-hosted (mostly) project, to keep track of my work experience.
 * Backend is designed by using ports and adapters architecture
 
 Iteration 1 (Design): domain implementation. Export selected work-experience (filtered or otherwise) to pdf
+TO DO:
+* improve code structure
+* improve main
+* improve ports and adapters for pdf exporter
+* move convert_to_pdf to an adapter, to avoid mixing responsibilities. We should have a port/adapter in charge of performing the export
+
 Iteration 2 (AI): adapt selected work-experience to specific JobDescription. Generate cover letter based on a selected work-experience and a specific JobDescription
 Iteration 3 (API): implement HTTP API to return roles, and filtered work experience. Iterate over FastAPI, Flask, maybe Django
 Iteration 4 (Security): add authentication and authorization with JWT

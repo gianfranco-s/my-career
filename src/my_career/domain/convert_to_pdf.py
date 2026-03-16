@@ -42,14 +42,16 @@ def _prepare_resume_data(resume: FullResume) -> dict:
     return data
 
 
-def _render_html(resume_data: dict) -> str:
+def _render_html(resume_data: dict, template_filename: str = "custom_template.html") -> str:
     env = Environment(loader=FileSystemLoader(TEMPLATES_DIR))
-    template = env.get_template("cv_template.html")
+    template = env.get_template(template_filename)
     return template.render(cv=resume_data)
 
 
-def export_to_pdf(resume: FullResume, output_path: str = "/tmp/exported_cv.pdf") -> None:
+def export_to_pdf(resume: FullResume, output_path: str) -> None:
     resume_data = _prepare_resume_data(resume)
-    html_content = _render_html(resume_data)
+    # html_content = _render_html(resume_data, "custom_template.html")
+    # html_content = _render_html(resume_data, "harvard_template.html")
+    html_content = _render_html(resume_data, "harvard_template_v2.html")
     HTML(string=html_content).write_pdf(output_path)
 

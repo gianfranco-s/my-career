@@ -15,6 +15,6 @@ filter = all_filters.get(role)
 
 filtered_resume = resume
 filtered_resume.work = filter_work_experiences(resume.work, filter)
-output_path = "./exported.pdf"
+output_path = "../../exported.pdf"
 export_to_pdf(resume=resume, output_path=output_path)
 print(f"PDF exported to {output_path=}")
