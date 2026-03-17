@@ -1,10 +1,12 @@
 {
-    "contact_name": "Mr. John Doe",
+    "contact_name": null,
     "contact_title": "Hiring Manager",
+    "contact_company": "Acme Corp.",
     "text": [
-        "Who doesn't like elegant? That feeling when your solution is -just right. Well, I do. I've worked several years teaching university courses, where each person requires a different approach, while keeping the institution's greater goals in mind. In my view, coding is a lot like that.",
-        "After more than a decade using paid software for numerical simulations, I started experimenting with open source software, mainly Python and Linux. I'm currently collaborating with a colleague in an education project based on Python, where teachers can code any number of problems, and students can randomly select them to solve. As I said, I'm starting, but I really want to learn and be useful to the community.",
-        "Thank you for your time. I look forward to learning more about the position and your organization's vision for this role."
+        "I am a Python developer with over four years of professional experience building backend systems, cloud infrastructure, and AI-integrated applications across industries including gaming, fintech, IoT, and human resources. Before that, I spent more than a decade teaching Electronics and Physics at university level — an experience that shaped how I approach complex problems: methodically, clearly, and always with the end user in mind.",
+        "In my recent roles I have led backend teams, reduced AWS infrastructure costs by over 30%, cut Docker build times in half, and integrated LLM pipelines into production systems. I am comfortable working across the full development lifecycle — from architecture decisions and code reviews to CI/CD automation and observability. I value clean code, testability, and well-defined boundaries between system components.",
+        "I am particularly drawn to roles where technical depth matters and where I can contribute meaningfully from day one. I work remotely from Patagonia, Argentina, and have done so successfully with distributed teams across the US, Europe, and Latin America.",
+        "Thank you for your time. I would welcome the opportunity to discuss how my background fits your team's needs."
     ],
     "sender_signature": "Gianfranco Salomone",
     "sender_email": "gianfranco.s@gmail.com",

@@ -2,6 +2,7 @@ from dataclasses import replace
 from typing import Any
 
 from openai import OpenAI
+from pydantic import create_model
 
 from my_career.domain.models import CoverLetter, FullResume, WorkExperience, Location
 from my_career.domain.prompt_handler import PromptHandler
@@ -9,6 +10,7 @@ from my_career.adapters.pydantic_utils import dataclass_to_basemodel
 
 CoverLetterSchema = dataclass_to_basemodel(CoverLetter)
 WorkExperienceSchema = dataclass_to_basemodel(WorkExperience)
+TailoredResumeSchema = create_model("TailoredResumeSchema", work=(list[WorkExperienceSchema], ...))
 
 
 def _to_work_experience(data: dict) -> WorkExperience:
@@ -36,12 +38,9 @@ class OpenAiTailor:
         if dry_run:
             return None
 
-        tailored_work = []
-        for work_experience in content.work:
-            user_content = self.__prompt_handler.get_user_prompt(work_experience)
-            res = self.__call_upstream(user_content=user_content, text_format=WorkExperienceSchema)
-            tailored_work.append(_to_work_experience(res.output_parsed.model_dump()))
-
+        user_content = self.__prompt_handler.get_user_prompt(content)
+        res = self.__call_upstream(user_content=user_content, text_format=TailoredResumeSchema)
+        tailored_work = [_to_work_experience(we.model_dump()) for we in res.output_parsed.work]
         return replace(content, work=tailored_work)
 
 

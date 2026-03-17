@@ -76,13 +76,12 @@
 
     <!-- Recipient -->
     <div class="recipient">
-        {% if letter.contact_name %}<p>{{ letter.contact_name }}</p>{% endif %}
-        {% if letter.contact_title %}<p>{{ letter.contact_title }}</p>{% endif %}
-        {% if letter.contact_address %}<p>{{ letter.contact_address }}</p>{% endif %}
+        <p>{{ letter.contact_company }}</p>
+        <p>{{ letter.contact_title }}</p>
     </div>
 
     <!-- Greeting -->
-    <div class="greeting">Dear {{ letter.contact_name or "Hiring Manager" }},</div>
+    <div class="greeting">{{ letter.contact_name or "To whom it may concern," }}</div>
 
     <!-- Body paragraphs -->
     <div class="body">
