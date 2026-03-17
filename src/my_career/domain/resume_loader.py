@@ -2,7 +2,6 @@ import json
 import logging
 from pathlib import Path
 
-from domain import RESUME_PATH
 from domain.models import (ResumeBasics,
                               Location,
                               SocialMediaProfile,
@@ -65,8 +64,3 @@ def build_resume(resume_path: Path) -> FullResume:
         resume[raw_section_name] = [resume_class(**raw_dict) for raw_dict in raw_resume[raw_section_name]]
     
     return FullResume(**resume)
-    
-
-if __name__ == "__main__":
-    full_resume = build_resume(RESUME_PATH)
-    logger.info(full_resume)

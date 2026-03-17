@@ -6,7 +6,7 @@ Returns FullResume with subset of WorkExperience
 """
 import logging
 
-from domain import ROLES_PATH, RESUME_PATH
+from config import ROLES_PATH, RESUME_PATH
 from domain.resume_loader import build_resume
 from domain.convert_to_pdf import export_to_pdf
 from domain.filters import filter_work_experiences, get_filters
