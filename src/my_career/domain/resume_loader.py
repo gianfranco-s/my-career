@@ -2,19 +2,21 @@ import json
 import logging
 from pathlib import Path
 
-from domain.models import (ResumeBasics,
-                              Location,
-                              SocialMediaProfile,
-                              Project,
-                              PersonalInterest,
-                              Education,
-                              WorkExperience,
-                              Certificate,
-                              Language,
-                              Skill,
-                              FullResume,
-                              BaseResumeSection)
-                              
+from my_career.domain.models import (
+    ResumeBasics,
+    Location,
+    SocialMediaProfile,
+    Project,
+    PersonalInterest,
+    Education,
+    WorkExperience,
+    Certificate,
+    Language,
+    Skill,
+    FullResume,
+    BaseResumeSection
+)
+    
 logger = logging.getLogger(__name__)
 
 

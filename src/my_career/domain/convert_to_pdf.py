@@ -5,11 +5,11 @@ from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 from weasyprint import HTML
 
-from domain.models import FullResume
+from my_career.domain.models import FullResume
 
 
 TEMPLATES_DIR = Path(__file__).parents[3] / "templates"
-print(TEMPLATES_DIR)
+
 
 def _format_date(date_str: str | None) -> str:
     if not date_str:

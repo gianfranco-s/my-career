@@ -6,10 +6,13 @@ Returns FullResume with subset of WorkExperience
 """
 import logging
 
-from config import ROLES_PATH, RESUME_PATH
-from domain.resume_loader import build_resume
-from domain.convert_to_pdf import export_to_pdf
-from domain.filters import filter_work_experiences, get_filters
+from my_career.logging_conf import setup_logging
+setup_logging()
+
+from my_career.config import ROLES_PATH, RESUME_PATH
+from my_career.domain.resume_loader import build_resume
+from my_career.domain.convert_to_pdf import export_to_pdf
+from my_career.domain.filters import filter_work_experiences, get_filters
 
 logger = logging.getLogger(__name__)
 

@@ -1,7 +1,7 @@
 import json
 from typing import Iterable
 
-from domain.models import WorkExperience
+from my_career.domain.models import WorkExperience
 
 
 def get_filters(filename: str) -> dict:

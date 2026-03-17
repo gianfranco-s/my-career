@@ -4,7 +4,6 @@ from dataclasses import dataclass
 from typing import Protocol
 
 
-
 @dataclass
 class Location:
     countryCode: str
