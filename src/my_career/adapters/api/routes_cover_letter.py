@@ -13,27 +13,27 @@ class CoverLetterOverrides(BaseModel):
     contact_address: str | None = None
 
 
-@router.get("/cover-letter")
+@router.get("")
 def get_cover_letter(request: Request):
     service: CoverLetterBoundary = request.app.state.cover_letter_service
     return service.get_cover_letter()
 
 
-@router.patch("/cover-letter")
+@router.patch("")
 def update_cover_letter(request: Request, overrides: CoverLetterOverrides):
     kwargs = {k: v for k, v in overrides.model_dump().items() if v is not None}
     service: CoverLetterBoundary = request.app.state.cover_letter_service
     return service.get_updated_cover_letter(**kwargs)
 
 
-@router.get("/cover-letter/pdf")
+@router.get("/pdf")
 def get_cover_letter_pdf(request: Request):
     """Returns pdf at <api-root>/cover-letter/pdf"""
     service: CoverLetterBoundary = request.app.state.cover_letter_service
     return Response(content=service.export_pdf(), media_type="application/pdf")
 
 
-@router.patch("/cover-letter/pdf")
+@router.patch("/pdf")
 def get_updated_cover_letter_pdf(request: Request, overrides: CoverLetterOverrides):
     """Returns pdf at <api-root>/cover-letter/pdf"""
     kwargs = {k: v for k, v in overrides.model_dump().items() if v is not None}

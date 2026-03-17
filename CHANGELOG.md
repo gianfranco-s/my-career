@@ -1,7 +1,7 @@
 ## v0.0.3
 
 ### Added
-* [Adapter] FastAPI to expose resume and roles
+* [Adapter] FastAPI to expose resume, roles, filters, pdf downloads
 * [UseCases] Domain-like functions to avoid having FastAPI instantiate the domain
 
 

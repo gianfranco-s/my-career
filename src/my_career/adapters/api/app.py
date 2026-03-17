@@ -27,8 +27,8 @@ async def lifespan(app: FastAPI):
 
 def create_app():
     app = FastAPI(lifespan=lifespan)
-    app.include_router(resume)
-    app.include_router(cover_letter)
+    app.include_router(resume, prefix="/v1/resume", tags=["resume"])
+    app.include_router(cover_letter, prefix="/v1/cover-letter", tags=["cover-letter"])
     return app
 
 
