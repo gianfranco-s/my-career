@@ -1,5 +1,3 @@
-"""Models used to load the full resume"""
-
 from dataclasses import dataclass
 from typing import Protocol
 
@@ -115,3 +113,34 @@ class BaseResumeSection(Protocol):
     such as WorkExperience or Project
     """
     pass
+
+@dataclass
+class CoverLetter:
+    date: str
+    contact_title: str
+    contact_company: str
+    text: list[str]
+    sender_signature: str
+    sender_email: str
+    contact_name: str | None = None
+    contact_address: str | None = None
+    final_greeting: str = "Sincerely,"
+
+
+@dataclass
+class JobDescription:
+    text: str
+    date: str | None = None
+
+    def __post_init__(self) -> None:
+        """Parse to remove line jumps and odd characters?"""
+
+
+@dataclass
+class AiTailoredWorkExperience:
+    response: WorkExperience
+
+
+@dataclass
+class AiTailoredLetter:
+    response: CoverLetter

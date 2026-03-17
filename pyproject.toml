@@ -1,10 +1,11 @@
 [project]
 name = "my-career"
-version = "0.1.0"
-description = "Add your description here"
+version = "0.0.2"
+description = "Showcase of my full career"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "jinja2>=3.1.6",
+    "openai>=2.28.0",
     "weasyprint>=68.1",
 ]

@@ -5,7 +5,7 @@ from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 from weasyprint import HTML
 
-from my_career.domain.models import FullResume
+from my_career.domain.models import FullResume, CoverLetter
 
 
 def _format_date(date_str: str | None) -> str:
@@ -61,12 +61,40 @@ class ResumeHtmlRenderer:
             data["work"] = sorted(data["work"], key=lambda x: x.get("startDate", ""), reverse=True)
 
         return data
+    
+class CoverLetterRenderer:
+    """Prepares cover letter data and renders it to an HTML string using a Jinja2 template."""
+
+    def __init__(self, template_abs_path: str) -> None:
+        template_path = Path(template_abs_path)
+        if not template_path.exists():
+            raise FileNotFoundError(template_abs_path)
+        
+        self.template_filename = template_path.name
+        self.template_dir = template_path.parent
+
+    def render_html_string(self, letter: CoverLetter) -> str:
+        """
+        Creates HTML content, based on template
+        """
+        env = Environment(loader=FileSystemLoader(self.template_dir))
+        template = env.get_template(self.template_filename)
+        return template.render(letter=letter)
 
 
-class PdfExporter:
+class ResumePdfExporter:
     def __init__(self, template_path: str) -> None:
         self.renderer = ResumeHtmlRenderer(template_path)
 
     def export(self, resume: FullResume, output_path: str) -> None:
         html_content = self.renderer.render_html_string(resume)
+        HTML(string=html_content).write_pdf(output_path)
+
+
+class LetterPdfExporter:
+    def __init__(self, template_path: str) -> None:
+        self.renderer = CoverLetterRenderer(template_path)
+
+    def export(self, cover_letter: CoverLetter, output_path: str) -> None:
+        html_content = self.renderer.render_html_string(cover_letter)
         HTML(string=html_content).write_pdf(output_path)

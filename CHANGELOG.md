@@ -1,3 +1,11 @@
+## v0.0.2
+
+### Added
+* [Domain] Read JSON with cover letter
+* [Adapter] Export cover letter to pdf file
+* [Adapter] Tailor resume and cover letter to specific Job Description
+
+
 ## v0.0.1
 
 ### Added
