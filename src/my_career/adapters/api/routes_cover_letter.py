@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Request
 from pydantic import BaseModel
 
-from my_career.use_cases.cover_letter import get_updated_cover_letter
+from my_career.ports.cover_letter_boundary import CoverLetterBoundary
 
 router = APIRouter()
 
@@ -15,10 +15,12 @@ class CoverLetterOverrides(BaseModel):
 
 @router.get("/cover-letter")
 def get_cover_letter(request: Request):
-    return request.app.state.cover_letter
+    service: CoverLetterBoundary = request.app.state.cover_letter_service
+    return service.get_cover_letter()
 
 
 @router.patch("/cover-letter")
 def update_cover_letter(request: Request, overrides: CoverLetterOverrides):
     kwargs = {k: v for k, v in overrides.model_dump().items() if v is not None}
-    return get_updated_cover_letter(request.app.state.cover_letter, **kwargs)
+    service: CoverLetterBoundary = request.app.state.cover_letter_service
+    return service.get_updated_cover_letter(**kwargs)
