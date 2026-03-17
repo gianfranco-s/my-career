@@ -1,3 +1,10 @@
+## v0.0.3
+
+### Added
+* [Adapter] FastAPI to expose resume and roles
+* [UseCases] Domain-like functions to avoid having FastAPI instantiate the domain
+
+
 ## v0.0.2
 
 ### Added
