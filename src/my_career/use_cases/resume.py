@@ -2,6 +2,8 @@ from my_career.config import RESUME_PATH, ROLES_PATH
 from my_career.domain.resume_loader import build_resume
 from my_career.domain.models import FullResume
 from my_career.domain.filters import filter_work_experiences, get_filters
+from my_career.ports.exporter import ResumeExporter
+
 
 def load_resume() -> FullResume:
     return build_resume(RESUME_PATH)
@@ -11,9 +13,10 @@ def load_filters() -> dict:
 
 
 class ResumeService:
-    def __init__(self, resume: FullResume, predefined_roles: dict):
+    def __init__(self, resume: FullResume, predefined_roles: dict, pdf_exporter: ResumeExporter):
         self.__resume = resume
         self.__all_filters = predefined_roles
+        self.__pdf_exporter = pdf_exporter
 
     def get_resume(self) -> FullResume:
         return self.__resume
@@ -32,3 +35,7 @@ class ResumeService:
         if include is None:
             raise ValueError(f"{role=} does not exist in predefined roles")
         return include
+
+    def export_pdf(self, role: str | None = None) -> bytes:
+        resume = self.get_filtered_resume(role) if role else self.__resume
+        return self.__pdf_exporter.export_to_bytes(resume)
