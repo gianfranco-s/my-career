@@ -4,3 +4,4 @@
 4. Create upstream tailor for JD.
 5. Create prompt handler.
 6. Create HTTP API handling, as adapter, and use_cases/
+7. In previous step, ports/ were not needed. Now add them for completeness.
