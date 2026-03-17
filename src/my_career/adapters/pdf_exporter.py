@@ -48,10 +48,11 @@ def _render_html(resume_data: dict, template_filename: str = "custom_template.ht
     return template.render(cv=resume_data)
 
 
-def export_to_pdf(resume: FullResume, output_path: str) -> None:
-    resume_data = _prepare_resume_data(resume)
-    # html_content = _render_html(resume_data, "custom_template.html")
-    # html_content = _render_html(resume_data, "harvard_template.html")
-    html_content = _render_html(resume_data, "harvard_template_v2.html")
-    HTML(string=html_content).write_pdf(output_path)
+class PdfExporter:
+    def __init__(self, template_filename: str) -> None:
+        self.template = template_filename
 
+    def export(self, resume: FullResume, output_path: str) -> None:
+        resume_data = _prepare_resume_data(resume)
+        html_content = _render_html(resume_data, self.template)
+        HTML(string=html_content).write_pdf(output_path)
