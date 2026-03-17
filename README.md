@@ -12,3 +12,8 @@ Self-hosted (mostly) project, to keep track of my work experience.
 Iteration 4 (Security&Errors): add authentication and authorization with JWT. Implement error handling and uniform responses  
 Iteration 5 (AI over API): implement AI routes  
 Iteration 6 (Cache): implement local cache for specific requests  
+
+## Run locally
+```bash
+uv run uvicorn my_career.adapters.api.app:app --reload --app-dir src
+```

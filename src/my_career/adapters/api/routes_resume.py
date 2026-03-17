@@ -1,10 +1,10 @@
-from fastapi import APIRouter, Request
+from fastapi import APIRouter, Request, Response
 
 from my_career.ports.resume_boundary import ResumeBoundary
 
 router = APIRouter()
 
- 
+
 @router.get("/resume")
 def get_resume(request: Request):
     service: ResumeBoundary = request.app.state.resume_service
@@ -27,3 +27,11 @@ def get_resume_filters_for_role(request: Request, role: str):
 def get_filtered_resume(request: Request, role: str):
     service: ResumeBoundary = request.app.state.resume_service
     return service.get_filtered_resume(role)
+
+
+@router.get("/resume/pdf")
+def get_resume_pdf(request: Request, role: str | None = None):
+    """Returns pdf at <api-root>/resume/pdf"""
+    service: ResumeBoundary = request.app.state.resume_service
+    pdf_bytes = service.export_pdf(role)
+    return Response(content=pdf_bytes, media_type="application/pdf")

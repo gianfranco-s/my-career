@@ -90,6 +90,10 @@ class ResumePdfExporter:
         html_content = self.renderer.render_html_string(resume)
         HTML(string=html_content).write_pdf(output_path)
 
+    def export_to_bytes(self, resume: FullResume) -> bytes:
+        html_content = self.renderer.render_html_string(resume)
+        return HTML(string=html_content).write_pdf()
+
 
 class LetterPdfExporter:
     def __init__(self, template_path: str) -> None:
@@ -98,3 +102,7 @@ class LetterPdfExporter:
     def export(self, cover_letter: CoverLetter, output_path: str) -> None:
         html_content = self.renderer.render_html_string(cover_letter)
         HTML(string=html_content).write_pdf(output_path)
+
+    def export_to_bytes(self, cover_letter: CoverLetter) -> bytes:
+        html_content = self.renderer.render_html_string(cover_letter)
+        return HTML(string=html_content).write_pdf()
