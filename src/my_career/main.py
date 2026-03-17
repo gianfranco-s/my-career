@@ -8,7 +8,7 @@ import logging
 
 from my_career.logging_conf import setup_logging
 
-from my_career.config import ROLES_PATH, RESUME_PATH
+from my_career.config import ROLES_PATH, RESUME_PATH, TEMPLATE_PATH
 from my_career.domain.resume_loader import build_resume
 from my_career.domain.filters import filter_work_experiences, get_filters
 from my_career.adapters.pdf_exporter import PdfExporter
@@ -33,6 +33,6 @@ if __name__ == "__main__":
 
     # -------------------------------- Adapters ------------------------------
     output_path = "/home/gsalomone/Documents/02ReposYPracticas/my-career/exported.pdf"
-    exporter = PdfExporter("custom_template.html")
+    exporter = PdfExporter(TEMPLATE_PATH)
     exporter.export(filtered_resume, output_path)
     logger.info(f"PDF exported to {output_path=}")

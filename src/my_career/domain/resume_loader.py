@@ -47,7 +47,7 @@ def get_resume_section_definition(raw_section_name: str) -> BaseResumeSection:
     }.get(raw_section_name)
 
     if resume_section is None:
-        logger.warning(f"{raw_section_name=} is not defined")
+        logger.debug(f"{raw_section_name=} is not defined")
     
     return resume_section
 
