@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ cv.basics.name }} - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 11pt;
+            color: #000;
+            line-height: 1.4;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .page {
+            width: 100%;
+            padding: 18mm 20mm;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        .header h1 {
+            font-size: 16pt;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .contact-line {
+            font-size: 10pt;
+            margin-top: 4px;
+        }
+
+        .contact-line span + span::before {
+            content: " | ";
+        }
+
+        /* Section */
+        .section {
+            margin-top: 10px;
+        }
+
+        .section-title {
+            font-size: 11pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1.5px solid #000;
+            padding-bottom: 2px;
+            margin-bottom: 6px;
+        }
+
+        /* Entry layout: left content + right-aligned date */
+        .entry {
+            margin-bottom: 8px;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .entry-org {
+            font-weight: bold;
+        }
+
+        .entry-date {
+            font-size: 10pt;
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+
+        .entry-subtitle {
+            font-style: italic;
+            font-size: 10pt;
+        }
+
+        .entry-location {
+            font-size: 10pt;
+            color: #444;
+        }
+
+        ul.bullets {
+            margin-left: 18px;
+            margin-top: 3px;
+        }
+
+        ul.bullets li {
+            margin-bottom: 2px;
+            font-size: 10.5pt;
+        }
+
+        /* Skills */
+        .skill-row {
+            margin-bottom: 3px;
+            font-size: 10.5pt;
+        }
+
+        .skill-row .skill-name {
+            font-weight: bold;
+        }
+
+        /* Education subtitle row */
+        .edu-detail {
+            font-size: 10pt;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- Header -->
+    <div class="header">
+        <h1>{{ cv.basics.name }}</h1>
+        <div class="contact-line">
+            {% if cv.basics.email %}<span><a href="mailto:{{ cv.basics.email }}">{{ cv.basics.email }}</a></span>{% endif %}
+            {% if cv.basics.phone %}<span>{{ cv.basics.phone }}</span>{% endif %}
+            {% if cv.basics.url %}<span><a href="{{ cv.basics.url }}">{{ cv.basics.url }}</a></span>{% endif %}
+            {% for profile in cv.basics.profiles %}
+                {% if profile.network|lower in ['linkedin', 'github'] %}
+                    <span><a href="{{ profile.url }}">{{ profile.network }}/{{ profile.username }}</a></span>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Education -->
+    {% if cv.education %}
+    <div class="section">
+        <div class="section-title">Education</div>
+        {% for edu in cv.education %}
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-org">{{ edu.institution }}</span>
+                <span class="entry-date">
+                    {{ edu.startDateFormatted }}{% if edu.endDateFormatted %} – {{ edu.endDateFormatted }}{% endif %}
+                </span>
+            </div>
+            <div class="edu-detail">
+                {% if edu.studyType %}<span class="entry-subtitle">{{ edu.studyType }}</span>, {% endif %}
+                {{ edu.area }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Experience -->
+    {% if cv.work %}
+    <div class="section">
+        <div class="section-title">Experience</div>
+        {% for job in cv.work %}
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-org">{{ job.name }}</span>
+                <span class="entry-date">
+                    {{ job.startDateFormatted }} – {{ job.endDateFormatted }}
+                </span>
+            </div>
+            <div class="entry-subtitle">
+                {{ job.position }}{% if job.isRemote %} &mdash; Remote{% endif %}
+            </div>
+            {% if job.highlights %}
+            <ul class="bullets">
+                {% for point in job.highlights %}
+                <li>{{ point }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Projects -->
+    {% if cv.projects %}
+    <div class="section">
+        <div class="section-title">Projects</div>
+        {% for project in cv.projects %}
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-org">
+                    {% if project.url %}<a href="{{ project.url }}">{{ project.name }}</a>{% else %}{{ project.name }}{% endif %}
+                </span>
+                <span class="entry-date">
+                    {{ project.startDateFormatted }}{% if project.endDateFormatted %} – {{ project.endDateFormatted }}{% endif %}
+                </span>
+            </div>
+            <div class="entry-subtitle">{{ project.description }}</div>
+            {% if project.highlights %}
+            <ul class="bullets">
+                {% for point in project.highlights %}
+                <li>{{ point }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Skills -->
+    {% if cv.skills %}
+    <div class="section">
+        <div class="section-title">Skills</div>
+        {% for skill in cv.skills %}
+        <div class="skill-row">
+            <span class="skill-name">{{ skill.name }}:</span>
+            {{ skill.keywords | join(', ') }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Languages -->
+    {% if cv.languages %}
+    <div class="section">
+        <div class="section-title">Languages</div>
+        <div class="skill-row">
+            {% for lang in cv.languages %}
+            <span><span class="skill-name">{{ lang.language }}</span> ({{ lang.fluency }}){% if not loop.last %}, {% endif %}</span>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Certificates -->
+    {% if cv.certificates %}
+    <div class="section">
+        <div class="section-title">Certifications</div>
+        {% for cert in cv.certificates %}
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-org">
+                    {% if cert.url %}<a href="{{ cert.url }}">{{ cert.name }}</a>{% else %}{{ cert.name }}{% endif %}
+                </span>
+                <span class="entry-date">{{ cert.date }}</span>
+            </div>
+            <div class="entry-subtitle">{{ cert.issuer }}</div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+</div>
+</body>
+</html>
