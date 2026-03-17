@@ -2,6 +2,7 @@ import json
 import logging
 from pathlib import Path
 
+from domain import RESUME_PATH
 from domain.models import (ResumeBasics,
                               Location,
                               SocialMediaProfile,
@@ -16,12 +17,6 @@ from domain.models import (ResumeBasics,
                               BaseResumeSection)
                               
 logger = logging.getLogger(__name__)
-
-PROJECT_DIR = Path(__file__).parents[3]
-RESUME_DIR = PROJECT_DIR / "my-resume"
-RESUME_FILENAME = "gianfranco-salomone-cv.json"
-
-RESUME_PATH = RESUME_DIR / RESUME_FILENAME
 
 
 def _load_resume(resume_path: Path) -> dict:
@@ -56,7 +51,7 @@ def get_resume_section_definition(raw_section_name: str) -> BaseResumeSection:
     return resume_section
 
 
-def build_resume(resume_path: Path = RESUME_PATH) -> FullResume:
+def build_resume(resume_path: Path) -> FullResume:
     raw_resume = _load_resume(resume_path=resume_path)
 
     resume = dict()
