@@ -8,6 +8,11 @@ from my_career.domain.models import CoverLetter, FullResume, WorkExperience, Loc
 from my_career.domain.prompt_handler import PromptHandler
 from my_career.adapters.pydantic_utils import dataclass_to_basemodel
 
+"""
+Current implementation converts dataclasses to pydantic, in order to make use of OpenAI's `text_format`
+If feels hacky, but will have to do for now.
+"""
+
 CoverLetterSchema = dataclass_to_basemodel(CoverLetter)
 WorkExperienceSchema = dataclass_to_basemodel(WorkExperience)
 TailoredResumeSchema = create_model("TailoredResumeSchema", work=(list[WorkExperienceSchema], ...))
