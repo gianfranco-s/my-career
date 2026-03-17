@@ -1,7 +1,7 @@
 import json
-from typing import Iterable
+from dataclasses import replace
 
-from my_career.domain.models import WorkExperience
+from my_career.domain.models import WorkExperience, FullResume
 
 
 def get_filters(filename: str) -> dict:
@@ -19,8 +19,10 @@ def get_filters(filename: str) -> dict:
     return roles
 
 
-def filter_work_experiences(work_experiences: list[WorkExperience], include: Iterable) -> list[WorkExperience]:
+def filter_work_experiences(resume: FullResume, include: list[str]) -> FullResume:
     if len(include) < 1:
-        return work_experiences
-    
-    return [we for we in work_experiences if we.name in include]
+        raise ValueError("include cannot be empty")
+
+    full_we: WorkExperience = resume.work
+    filtered_work_experiences = [we for we in full_we if we.name in include]
+    return replace(resume, work=filtered_work_experiences)

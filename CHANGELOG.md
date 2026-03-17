@@ -4,3 +4,5 @@
 * [Domain] Read JSON with resume
 * [Domain] Filter, based on predifined roles
 * [Adapter] Export to pdf file
+* Logging config
+* Environment variables config

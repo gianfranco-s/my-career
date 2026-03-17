@@ -17,6 +17,8 @@ from my_career.domain.filters import filter_work_experiences, get_filters
 logger = logging.getLogger(__name__)
 
 if __name__ == "__main__":
+
+    # -------------------------------- Domain --------------------------------
     resume = build_resume(RESUME_PATH)
 
     all_filters = get_filters(ROLES_PATH)
@@ -27,8 +29,9 @@ if __name__ == "__main__":
     logger.info(f"Selected {role=}")
     filter = all_filters.get(role)
 
-    filtered_resume = resume
-    filtered_resume.work = filter_work_experiences(resume.work, filter)
+    filtered_resume = filter_work_experiences(resume, filter)
+
+    # -------------------------------- Adapters ------------------------------
     output_path = "../../exported.pdf"
     export_to_pdf(resume=resume, output_path=output_path)
     logger.info(f"PDF exported to {output_path=}")
