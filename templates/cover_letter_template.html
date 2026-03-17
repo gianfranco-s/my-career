@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cover Letter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 11pt;
+            color: #000;
+            line-height: 1.5;
+        }
+
+        .page {
+            width: 100%;
+            padding: 22mm 25mm;
+        }
+
+        .date {
+            margin-bottom: 20px;
+            font-size: 11pt;
+        }
+
+        .recipient {
+            margin-bottom: 20px;
+            font-size: 11pt;
+        }
+
+        .recipient p {
+            margin-bottom: 2px;
+        }
+
+        .greeting {
+            margin-bottom: 16px;
+            font-size: 11pt;
+        }
+
+        .body p {
+            margin-bottom: 14px;
+            font-size: 11pt;
+            text-align: justify;
+        }
+
+        .closing {
+            margin-top: 28px;
+            font-size: 11pt;
+        }
+
+        .closing .final-greeting {
+            margin-bottom: 36px;
+        }
+
+        .closing .signature {
+            font-weight: bold;
+        }
+
+        .closing .sender-email {
+            font-size: 10.5pt;
+            margin-top: 2px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- Date -->
+    <div class="date">{{ letter.date }}</div>
+
+    <!-- Recipient -->
+    <div class="recipient">
+        {% if letter.contact_name %}<p>{{ letter.contact_name }}</p>{% endif %}
+        {% if letter.contact_title %}<p>{{ letter.contact_title }}</p>{% endif %}
+        {% if letter.contact_address %}<p>{{ letter.contact_address }}</p>{% endif %}
+    </div>
+
+    <!-- Greeting -->
+    <div class="greeting">Dear {{ letter.contact_name or "Hiring Manager" }},</div>
+
+    <!-- Body paragraphs -->
+    <div class="body">
+        {% for paragraph in letter.text %}
+        <p>{{ paragraph }}</p>
+        {% endfor %}
+    </div>
+
+    <!-- Closing -->
+    <div class="closing">
+        <div class="final-greeting">{{ letter.final_greeting }}</div>
+        <div class="signature">{{ letter.sender_signature }}</div>
+        {% if letter.sender_email %}
+        <div class="sender-email">{{ letter.sender_email }}</div>
+        {% endif %}
+    </div>
+
+</div>
+</body>
+</html>

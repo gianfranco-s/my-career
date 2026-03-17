@@ -115,3 +115,34 @@ class BaseResumeSection(Protocol):
     such as WorkExperience or Project
     """
     pass
+
+@dataclass
+class CoverLetter:
+    date: str
+    contact_name: str
+    contact_title: str
+    text: str
+    sender_signature: str
+    sender_email: str
+    contact_address: str | None = None
+    final_greeting: str = "Sincerely,"
+
+
+# @dataclass
+# class JobDescription:
+#     text: str
+#     date: str | None = None
+
+#     def __post_init__() -> None:
+#         """Parse to remove line jumps and odd characters?"""
+
+
+# @dataclass
+# class AIAdaptedResume:
+#     """
+#     Resume returned from AI model
+#     Should have the same format as FullResume
+#     """
+#     original_job_description: JobDescription
+#     resume: FullResume
+
