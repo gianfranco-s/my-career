@@ -8,8 +8,6 @@ Self-hosted (mostly) project, to keep track of my work experience.
 
 Iteration 1 (Design): domain implementation. Export selected work-experience (filtered or otherwise) to pdf
 TO DO:
-* improve code structure
-* improve main
 * improve ports and adapters for pdf exporter
 * move convert_to_pdf to an adapter, to avoid mixing responsibilities. We should have a port/adapter in charge of performing the export
 
