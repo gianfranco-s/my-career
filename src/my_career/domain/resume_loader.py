@@ -1,3 +1,9 @@
+"""
+Loads a resume from a JSON file and maps it to domain models.
+
+Kept in domain because the resume will always be sourced from a local JSON file —
+there is no alternative implementation to swap in, so a port abstraction adds no value.
+"""
 import json
 import logging
 from pathlib import Path
