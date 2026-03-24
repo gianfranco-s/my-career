@@ -1,8 +1,10 @@
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Security
+from fastapi.exceptions import RequestValidationError
 
 from my_career.adapters.api.auth import require_auth
+from my_career.adapters.api.error_handlers import validation_error_handler, value_error_handler, unhandled_error_handler
 from my_career.adapters.api.routes_cover_letter import router as cover_letter
 from my_career.adapters.api.routes_resume import router as resume
 from my_career.adapters.pdf_exporter import ResumePdfExporter, LetterPdfExporter
@@ -31,6 +33,10 @@ async def lifespan(app: FastAPI):
 
 def create_app():
     app = FastAPI(lifespan=lifespan)
+
+    app.add_exception_handler(RequestValidationError, validation_error_handler)
+    app.add_exception_handler(ValueError, value_error_handler)
+    app.add_exception_handler(Exception, unhandled_error_handler)
 
     app.include_router(resume, prefix="/v1/resume", dependencies=[Security(require_auth)])
     app.include_router(cover_letter, prefix="/v1/cover-letter", dependencies=[Security(require_auth)])
