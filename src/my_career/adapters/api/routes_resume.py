@@ -2,7 +2,7 @@ from fastapi import APIRouter, Request, Response
 
 from my_career.ports.resume_boundary import ResumeBoundary
 
-router = APIRouter()
+router = APIRouter(tags=["resume"])
 
 
 @router.get("")

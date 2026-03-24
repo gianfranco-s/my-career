@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 from my_career.ports.cover_letter_boundary import CoverLetterBoundary
 
-router = APIRouter()
+router = APIRouter(tags=["cover-letter"])
 
 
 class CoverLetterOverrides(BaseModel):
