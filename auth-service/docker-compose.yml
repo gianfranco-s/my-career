@@ -1,0 +1,12 @@
+services:
+  auth-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: career-auth-service
+    ports:
+      - "8001:8001"
+    environment:
+      JWT_SECRET: 0ne-sm4l-st3p-for-m4n
+      USERS: admin:pass1,gian:pass2
+      JWT_TTL_HOURS: 4368

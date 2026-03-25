@@ -43,9 +43,10 @@ async def login(request: Request, form: OAuth2PasswordRequestForm = Depends()):
     hashed = existing_users.get(form.username)
     if not hashed or not bcrypt.checkpw(form.password.encode(), hashed):
         raise HTTPException(status_code=401, detail="Invalid credentials")
+    expires = datetime.now(timezone.utc) + timedelta(hours=JWT_TTL_HOURS)
     payload = {
         "sub": form.username,
-        "exp": datetime.now(timezone.utc) + timedelta(hours=JWT_TTL_HOURS),
+        "exp": expires,
     }
     token = jwt.encode(payload, JWT_SECRET, algorithm=JWT_ALGORITHM)
-    return {"access_token": token, "token_type": "bearer"}
+    return {"access_token": token, "token_type": "bearer", "expires": expires}

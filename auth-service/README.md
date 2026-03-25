@@ -33,7 +33,7 @@ docker run -p 8001:8001 \
 
 ```bash
 curl -X POST http://localhost:8001/v1/auth/token \
-  -d "username=alice&password=pass1"
+  -d "username=gian&password=pass2"
 ```
 
 Response:

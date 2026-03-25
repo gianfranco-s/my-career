@@ -17,3 +17,12 @@ Stage 6 (Cache): implement local cache for specific requests
 ```bash
 uv run uvicorn my_career.adapters.api.app:app --reload --app-dir src
 ```
+
+## Companion auth service
+Handles JWT issuance. Must be running for authenticated requests to work.
+```bash
+docker compose -f auth-service/docker-compose.yml up --build
+curl -X POST http://localhost:8001/v1/auth/token \
+  -d "username=gian&password=pass2"
+# Additional info at auth-service/README.md
+```
