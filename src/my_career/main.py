@@ -49,7 +49,7 @@ if __name__ == "__main__":
 
     if ADAPT_USING_JD:
         from openai import OpenAI
-        client = OpenAI(api_key=openai_settings.openai_api_key)
+        client = OpenAI(api_key=openai_settings.openai_api_key.get_secret_value())
         tailor = OpenAiTailor(client=client, prompt_handler=prompt_handler)
         tailored_letter = tailor.get_tailored_letter(content=cover_letter)
         logger.debug(tailored_letter)

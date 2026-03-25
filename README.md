@@ -15,7 +15,16 @@ Stage 6 (Cache): implement local cache for specific requests
 
 ## Run locally
 ```bash
-JWT_SECRET=0ne-sm4l-st3p-for-m4n uv run uvicorn my_career.adapters.api.app:app --reload --app-dir src
+OPENAI_API_KEY="<api-key>" JWT_SECRET="0ne-sm4l-st3p-for-m4n" uv run uvicorn my_career.adapters.api.app:app --reload --app-dir src
+```
+
+## Download PDF resume
+```sh
+curl -X 'GET' \
+  'http://localhost:8000/v1/resume/pdf?role=python-dev' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer <token>' \
+  -o resume.pdf
 ```
 
 ## Companion auth service
