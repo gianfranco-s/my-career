@@ -7,6 +7,7 @@
 * [Auth] JWT auth
 * [Errors] Centralized error handling
 * [CompanionAuthService] External auth service, used to create JWT
+* [Health] Simple health endpoint
 
 
 ## v0.0.3
