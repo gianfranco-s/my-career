@@ -1,4 +1,3 @@
-import base64
 import os
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone, timedelta
@@ -6,7 +5,6 @@ from datetime import datetime, timezone, timedelta
 import bcrypt
 import jwt
 from fastapi import FastAPI, HTTPException, Depends, Request
-from fastapi.responses import Response
 from fastapi.security import OAuth2PasswordRequestForm
 
 JWT_SECRET = os.environ.get("JWT_SECRET", "")
