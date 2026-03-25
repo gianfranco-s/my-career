@@ -1,5 +1,8 @@
 ## v0.0.4
 
+### Changed
+* Use pydantic-settings to define global configs
+
 ### Added
 * [Auth] JWT auth
 * [Errors] Centralized error handling

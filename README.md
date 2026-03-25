@@ -26,7 +26,3 @@ curl -X POST http://localhost:8001/v1/auth/token \
   -d "username=gian&password=pass2"
 # Additional info at auth-service/README.md
 ```
-
-Small tweaks TODO:
-* dockerize app
-* use pydantic settings in configs.py
