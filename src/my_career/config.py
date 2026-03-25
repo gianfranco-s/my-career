@@ -1,27 +1,52 @@
-import os
 from pathlib import Path
 
+from pydantic import SecretStr
+from pydantic_settings import BaseSettings
+    
 PROJECT_ROOT_DIR = Path(__file__).parents[2]
 
-DEFAULT_RESUME_DIR = PROJECT_ROOT_DIR / "my-resume"
-DEFAULT_TEMPLATES_DIR = PROJECT_ROOT_DIR / "templates"
 
-RESUME_DIR: str = os.environ.get("RESUME_DIR", DEFAULT_RESUME_DIR)
-TEMPLATES_DIR: str = os.environ.get("TEMPLATES_DIR", DEFAULT_TEMPLATES_DIR)
+class Settings(BaseSettings):
+    source_dir: str = str(PROJECT_ROOT_DIR / "my-resume")
+    templates_dir: str = str(PROJECT_ROOT_DIR / "templates")
 
-RESUME_FILENAME: str = os.environ.get("RESUME_FILENAME", "resume.json")
-ROLES_FILENAME: str = os.environ.get("ROLES_FILENAME", "roles.json")
-LETTER_FILENAME: str = os.environ.get("LETTER_FILENAME", "cover-letter.json")
-RESUME_TEMPLATE_FILENAME: str = os.environ.get("TEMPLATE_FILENAME", "custom_template.html")
-LETTER_TEMPLATE_FILENAME: str = os.environ.get("LETTER_FILENAME", "cover_letter_template.html")
+    resume_filename: str = "resume.json"
+    roles_filename: str = "roles.json"
+    letter_filename: str = "cover-letter.json"
+
+    resume_template_filename: str = "custom_template.html"
+    letter_template_filename: str = "cover_letter_template.html"
+
+    @property
+    def source_resume(self) -> Path:
+        return Path(self.source_dir) / self.resume_filename
+
+    @property
+    def source_roles(self) -> Path:
+        return Path(self.source_dir) / self.roles_filename
+
+    @property
+    def source_letter(self) -> Path:
+        return Path(self.source_dir) / self.letter_filename
+
+    @property
+    def template_resume(self) -> Path:
+        return Path(self.templates_dir) / self.resume_template_filename
+
+    @property
+    def template_letter(self) -> Path:
+        return Path(self.templates_dir) / self.letter_template_filename
 
 
-RESUME_PATH = RESUME_DIR / RESUME_FILENAME
-ROLES_PATH = RESUME_DIR / ROLES_FILENAME
-LETTER_PATH = RESUME_DIR / LETTER_FILENAME
-RESUME_TEMPLATE_PATH = TEMPLATES_DIR / RESUME_TEMPLATE_FILENAME
-LETTER_TEMPLATE_PATH = TEMPLATES_DIR / LETTER_TEMPLATE_FILENAME
+class AuthSettings(BaseSettings):
+    jwt_secret: SecretStr
+    jwt_algorithm: str = "HS256"
 
-OPENAI_API_KEY: str = os.environ.get("OPENAI_API_KEY")
 
-ADAPT_USING_JD: bool = False
+class OpenAiSettings(BaseSettings):
+    openai_api_key: SecretStr
+
+
+settings = Settings()
+openai_settings = OpenAiSettings()
+auth_settings = AuthSettings()

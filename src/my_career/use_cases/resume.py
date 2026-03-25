@@ -1,4 +1,4 @@
-from my_career.config import RESUME_PATH, ROLES_PATH
+from my_career.config import settings
 from my_career.domain.resume_loader import build_resume
 from my_career.domain.models import FullResume
 from my_career.domain.filters import filter_work_experiences, get_filters
@@ -6,10 +6,10 @@ from my_career.ports.exporter import ResumeExporter
 
 
 def load_resume() -> FullResume:
-    return build_resume(RESUME_PATH)
+    return build_resume(settings.source_resume)
 
 def load_filters() -> dict:
-    return get_filters(ROLES_PATH)
+    return get_filters(settings.source_roles)
 
 
 class ResumeService:
