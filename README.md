@@ -15,7 +15,7 @@ Stage 6 (Cache): implement local cache for specific requests
 
 ## Run locally
 ```bash
-uv run uvicorn my_career.adapters.api.app:app --reload --app-dir src
+JWT_SECRET=0ne-sm4l-st3p-for-m4n uv run uvicorn my_career.adapters.api.app:app --reload --app-dir src
 ```
 
 ## Companion auth service
