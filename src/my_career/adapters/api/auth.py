@@ -4,6 +4,7 @@ from fastapi import Security, HTTPException
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 
 from my_career.config import JWT_SECRET, JWT_ALGORITHM
+from my_career.config import auth_settings
 
 bearer = HTTPBearer()
 
@@ -12,8 +13,8 @@ def require_auth(credentials: HTTPAuthorizationCredentials = Security(bearer)) -
     try:
         jwt.decode(
             credentials.credentials,
-            JWT_SECRET,
-            algorithms=[JWT_ALGORITHM],
+            auth_settings.jwt_secret,
+            algorithms=[auth_settings.jwt_algorithm],
             options={"require": ["exp"]},
         )
     except jwt.ExpiredSignatureError:

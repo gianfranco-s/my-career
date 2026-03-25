@@ -1,12 +1,12 @@
 from dataclasses import replace, fields
-from my_career.config import LETTER_PATH
+from my_career.config import settings
 from my_career.domain.letter_loader import build_letter
 from my_career.domain.models import CoverLetter
 from my_career.ports.exporter import CoverLetterExporter
 
 
 def load_cover_letter() -> CoverLetter:
-    return build_letter(LETTER_PATH)
+    return build_letter(settings.source_letter)
 
 
 class CoverLetterService:

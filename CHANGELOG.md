@@ -1,3 +1,11 @@
+## v0.0.4
+
+### Added
+* [Auth] JWT auth
+* [Errors] Centralized error handling
+* [CompanionAuthService] External auth service, used to create JWT
+
+
 ## v0.0.3
 
 ### Added
