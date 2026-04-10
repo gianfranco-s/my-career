@@ -33,7 +33,7 @@ def filter_work_experiences(resume: FullResume, include: list[str]) -> FullResum
 def filter_education(resume: FullResume, include: list[str]) -> FullResume:
     if not include:
         return resume
-    filtered = [edu for edu in resume.education if edu.institution in include]
+    filtered = [edu for edu in resume.education if edu.area in include]
     return replace(resume, education=filtered)
 
 

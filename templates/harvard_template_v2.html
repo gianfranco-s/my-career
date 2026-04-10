@@ -42,6 +42,12 @@
             font-weight: bold;
         }
 
+        .label {
+            font-size: 11pt;
+            font-style: italic;
+            margin-top: 2px;
+        }
+
         .contact-line {
             font-size: 10pt;
             margin-top: 3px;
@@ -80,27 +86,9 @@
             font-weight: bold;
         }
 
-        .entry-right {
-            font-size: 10.5pt;
-            white-space: nowrap;
-            margin-left: 10px;
-        }
-
-        .entry-sub-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-        }
-
         .entry-sub-left {
             font-weight: normal;
             font-size: 10.5pt;
-        }
-
-        .entry-sub-right {
-            font-size: 10.5pt;
-            white-space: nowrap;
-            margin-left: 10px;
         }
 
         .entry-note {
@@ -143,6 +131,7 @@
     <!-- Header -->
     <div class="header">
         <h1>{{ cv.basics.name }}</h1>
+        {% if cv.basics.label %}<div class="label">{{ cv.basics.label }}</div>{% endif %}
         <div class="contact-line">
             {% if cv.basics.email %}<span><a href="mailto:{{ cv.basics.email }}">{{ cv.basics.email }}</a></span>{% endif %}
             {% if cv.basics.phone %}<span>{{ cv.basics.phone }}</span>{% endif %}
@@ -161,14 +150,10 @@
         {% for job in cv.work %}
         <div class="entry">
             <div class="entry-row">
-                <span class="entry-left">{{ job.name }}</span>
-                <span class="entry-right">
-                    {% if job.location %}{{ job.location.city }}{% if job.location.region %}, {{ job.location.region }}{% endif %}. {% endif %}{% if job.isRemote %}Remote{% endif %}
-                </span>
+                <span class="entry-left">{{ job.position }}</span>
             </div>
             <div class="entry-sub-row">
-                <span class="entry-sub-left">{{ job.position }}</span>
-                <span class="entry-sub-right">{{ job.startDateFormatted }} - {{ job.endDateFormatted }}</span>
+                <span class="entry-sub-left">{{ job.name }} | {{ job.startDateFormatted }} - {{ job.endDateFormatted }}{% if job.isRemote %} | Remote{% endif %}{% if job.location %} | {{ job.location }}{% endif %}</span>
             </div>
             {% if job.highlights %}
             <ul class="bullets">
@@ -190,14 +175,8 @@
         {% for edu in cv.education %}
         <div class="entry">
             <div class="entry-row">
-                <span class="entry-left">{{ edu.institution }}</span>
-                <span class="entry-right">
-                    {% if edu.location %}{{ edu.location }}{% endif %}
-                </span>
-            </div>
-            <div class="entry-sub-row">
-                <span class="entry-sub-left">{{ edu.area }}{% if edu.studyType %} ({{ edu.studyType }}){% endif %}</span>
-                <span class="entry-sub-right">Grad {{ edu.endDateFormatted }}</span>
+                <span class="entry-left">{{ edu.area }} <span style="font-weight: normal;">- {{ edu.institution }}</span></span>
+                <span class="entry-sub-left">{{ edu.endDateFormatted }}</span>
             </div>
         </div>
         {% endfor %}
@@ -216,25 +195,34 @@
     </div>
     {% endif %}
 
-    <!-- Skills & Interests -->
-    {% if cv.skills or cv.languages or cv.interests %}
+    <!-- Skills -->
+    {% if cv.skills %}
     <div class="section">
-        <div class="section-title">Skills &amp; Interests</div>
+        <div class="section-title">Skills</div>
 
         {% for skill in cv.skills %}
         <div class="plain-row">{{ skill.name }}: {{ skill.keywords | join(', ') }}</div>
         {% endfor %}
+    </div>
+    {% endif %}
 
-        {% if cv.languages %}
-        <div class="plain-row">Languages:
+    <!-- Languages -->
+    {% if cv.languages %}
+    <div class="section">
+        <div class="section-title">Languages</div>
+        <div class="plain-row">
             {% for lang in cv.languages %}{{ lang.language }} ({{ lang.fluency }}){% if not loop.last %}, {% endif %}{% endfor %}
         </div>
-        {% endif %}
+    </div>
+    {% endif %}
 
+    <!-- Interests -->
+    {% if cv.interests %}
+    <div class="section">
+        <div class="section-title">Interests</div>
         {% for interest in cv.interests %}
-        <div class="plain-row">Interests: {{ interest.summary }}</div>
+        <div class="plain-row">{{ interest.summary }}</div>
         {% endfor %}
-
     </div>
     {% endif %}
 

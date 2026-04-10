@@ -22,10 +22,12 @@
         "include": [
             "EPIC iO",
             "MecanTronic",
-            "Baitcon"
+            "Baitcon/AySA"
         ],
         "include_education": [
-            "Facultad de Ingeniería del Ejército"
+            "Electronics Engineer",
+            "SAP Database Administrator",
+            "SAP Data Engineer"
         ],
         "include_sections": [
             "work",

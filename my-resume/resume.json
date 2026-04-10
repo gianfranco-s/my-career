@@ -1,12 +1,12 @@
 {
     "basics": {
         "name": "Gianfranco Salomone",
-        "label": "Python Developer",
+        "label": "Senior backend / platform engineer",
         "image": "",
         "email": "gianfranco.s@gmail.com",
         "phone": "+5491157318476",
         "url": "https://gianfranco-salomone.com/",
-        "summary": "I love coding—simple as that. I coded Math, Physics and a bunch of software solutions. Professionally, I've built applications across industries like Gaming, AI detection, Human Resources and Fintech. I strive to implement clean(er) code and SOLID principles. From microcontrollers to cloud apps, I stay curious and continuously refine my skills. Based in Patagonia near Mount Piltriquitrón, I enjoy baking and trekking with my family: Luz, Luca, and baby Francesca.",
+        "summary": "I love coding; simple as that. I coded Math, Physics and a bunch of software solutions. Professionally, I've built applications across industries like Gaming, AI detection, Human Resources and Fintech. I strive to implement clean(er) code and SOLID principles. From microcontrollers to cloud apps, I stay curious and continuously refine my skills. Based in Patagonia near Mount Piltriquitrón, I enjoy baking and trekking with my family: Luz, Luca, and little Francesca. Let's connect, whether for collaboration or just a good conversation. Always open to learning something new",
         "location": {
             "city": "El Bols\u00f3n",
             "countryCode": "AR",
@@ -36,14 +36,12 @@
             "isRemote": true,
             "location": "US",
             "highlights": [
+                "Introduced asynchronous processing patterns to decouple API services from compute-heavy pipelines.",
+                "Standardized and hardened internal Computer Vision APIs, turning prototype endpoints into reliable, production-ready backend services.",
+                "Implemented observability and profiling using OpenTelemetry.",
                 "Cut building times by 50% by using Docker multi-stage.",
-                "Improved release times and complexity from 8hs to 2hs, by using Ansible.",
-                "Automated performance test cases with Locust and Bitbucket pipelines.",
-                "Crafted metrics to find out when systems are about to break.",
-                "Pushed for changes in how QA is performed, for complex products.",
-                "Developed automated CI pipelines to test performance.",
-                "Implemented Open Telemetry to improve observability.",
-                "Pushed for team agreements on AI-assisted coding."
+                "Improved release times from 8hs to 2hs, by using Ansible.",
+                "Automated performance testing with Locust and Bitbucket pipelines."
             ],
             "techHighlights": [
                 "Python",
@@ -64,7 +62,7 @@
         },
         {
             "name": "MecanTronic",
-            "position": "Cloud Developer / DevOps",
+            "position": "DevOps / Tech Lead",
             "url": "https://mecantronic.com.ar/",
             "startDate": "2024-07-01",
             "endDate": null,
@@ -72,12 +70,12 @@
             "isRemote": true,
             "location": "Buenos Aires",
             "highlights": [
-                "Reduced AWS legacy costs by over 30%.",
-                "Deployed production and staging environments to AWS.",
-                "Advocated for and implemented security best practices company-wide (wasn't easy).",
-                "Improved web security by implementing NGINX and CloudFlare.",
-                "Designed and developed REST API for backend of custom CRM project.",
-                "Maintained IoT reporting based on stack InﬂuxDB-Grafana-MQTT."
+                "Designed backend infrastructure on AWS using Terraform, focusing on scalability, isolation, security and maintainability.",
+                "Led adoption of Ports & Adapters architecture, replacing a fragmented Python/SQL approach.",
+                "Led adoption of AI-assisted development workflows across the team.",
+                "Reduced AWS legacy costs by 30%, while improving security posture.",
+                "Implemented CI/CD pipelines in AWS+GitHub.",
+                "Mentored teams into making their own design choices, while keeping global consistency."
             ],
             "techHighlights": [
                 "Python",
@@ -87,9 +85,11 @@
                 "AWS SES",
                 "AWS STS",
                 "AWS Systems Manager",
+                "AWS App Runner",
+                "AWS Secrets Manager",
+                "GitHub Actions",
+                "GitHub OIDC",
                 "CloudFlare",
-                "MQTT",
-                "IoT",
                 "Docker",
                 "DEV, STG and PRD environments",
                 "InfluxDB",
@@ -149,11 +149,10 @@
             "isRemote": true,
             "location": "Buenos Aires",
             "highlights": [
-                "Currently leading a team of junior devs to create an LLM-based app to quickly summarize legal requirements from long pdfs (RAG).",
-                "Managed deployment across DEV, QAS, UAT and PRD environments.",
-                "Built Python ETL pipeline for Oracle to SAP HANA data migration.",
-                "Reviewed code regularly for peers and junior devs.",
-                "Implemented Test-Driven Development."
+                "Managed multi-environment deployments (DEV, STG, PRD) ensuring consistency and reliability.",
+                "Designed ETL pipelines for data migration (Oracle → SAP HANA), handling data ingestion, transformation, and normalization across enterprise systems.",
+                "Led PoC of a Retrieval-Augmented Generation system on client data sources.",
+                "Established testing strategies to ensure system reliability across SAP-related updates and deployments."
             ],
             "techHighlights": [
                 "Flask",
@@ -179,10 +178,9 @@
             "isRemote": true,
             "location": "Canary Islands",
             "highlights": [
-                "Managed user data in PostgreSQL databases.",
-                "Integrated partner REST and SOAP APIs across multiple countries.",
-                "Conducted regular code peer reviews.",
-                "Developed Selenium-based end-to-end (E2E) Behave tests."
+                "Maintained backend systems handling multi-country integrations (REST/SOAP APIs).",
+                "Managed relational data models in PostgreSQL for production systems.",
+                "Built automated E2E testing to ensure reliability of distributed integrations."
             ],
             "techHighlights": [
                 "Flask",
@@ -195,7 +193,7 @@
             ]
         },
         {
-            "name": "MecanTronic",
+            "name": "IoT MecanTronic",
             "position": "Cloud Developer",
             "url": "https://mecantronic.com.ar/",
             "startDate": "2023-01-03",
@@ -382,16 +380,16 @@
             "url": null,
             "area": "Control Systems Specialist",
             "studyType": "specialist",
-            "startDate": "2011-01-01",
-            "endDate": "2013-01-01"
+            "startDate": "2014-01-01",
+            "endDate": "2016-01-01"
         },
         {
             "institution": "Facultad de Ingenier\u00eda del Ej\u00e9rcito",
             "url": null,
             "area": "Electronics Engineer",
-            "studyType": "masters",
-            "startDate": "2011-01-01",
-            "endDate": "2013-01-01"
+            "studyType": "undergrad",
+            "startDate": "2002-01-01",
+            "endDate": "2009-01-01"
         }
     ],
     "awards": {},
@@ -429,34 +427,37 @@
             "name": "Backend",
             "level": null,
             "keywords": [
-                "Python",
-                "Flask",
-                "Ansible",
-                "Docker",
+                "Python (FastAPI, Flask)",
                 "PyTest",
                 "Bash",
                 "Gstreamer",
-                "FastAPI",
                 "Pandas",
-                "Linux",
-                "Gherkin",
                 "Selenium",
+                "Gherkin",
                 "Cypress",
-                "C/C++",
-                "Assembly"
+                "nginx",
+                "Ollama"
             ]
         },
         {
-            "name": "Front",
+            "name": "Infrastructure",
             "level": null,
             "keywords": [
-                "ReactJS",
-                "TypeScript",
-                "JavaScript ES6",
-                "HTML/CSS",
-                "TailwindCSS",
-                "Bootstrap",
-                "NextJS"
+                "Docker",
+                "Ansible",
+                "Terraform",
+                "Kubernetes",
+                "AWS (IAM, S3, STS, SES, SecretsManager, ECR, Billing, AppRunner)"
+            ]
+        },
+        {
+            "name": "Observability",
+            "level": null,
+            "keywords": [
+                "Prometheus",
+                "Grafana",
+                "Open Telemetry",
+                "Locust"
             ]
         },
         {
@@ -465,18 +466,8 @@
             "keywords": [
                 "PostgreSQL",
                 "MySQL",
-                "InfluxDB",
-                "SAP HANA",
+                "Redis",
                 "ORM"
-            ]
-        },
-        {
-            "name": "Cloud",
-            "level": null,
-            "keywords": [
-                "AWS",
-                "SAP BTP",
-                "SAP AI Core"
             ]
         },
         {
@@ -485,22 +476,20 @@
             "keywords": [
                 "Git",
                 "GitHub",
-                "Flake8",
-                "isort",
                 "Slack",
                 "Jira",
-                "Grafana"
+                "OpenObserve"
             ]
         }
     ],
     "languages": [
         {
             "language": "Spanish",
-            "fluency": "native speaker"
+            "fluency": "native"
         },
         {
             "language": "English",
-            "fluency": "advanced (C1)"
+            "fluency": "C1"
         },
         {
             "language": "German",
