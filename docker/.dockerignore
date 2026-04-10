@@ -1,0 +1,12 @@
+.venv/
+**/__pycache__/
+**/*.pyc
+.git/
+.gitignore
+.dockerignore
+docker/
+auth-service/
+*.pdf
+*.md
+.env
+src/.env

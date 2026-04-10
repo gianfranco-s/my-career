@@ -3,13 +3,13 @@
     "contact_title": "Hiring Manager",
     "contact_company": "Acme Corp.",
     "text": [
-        "I am a Python developer with over six years of professional experience building backend systems, cloud infrastructure, and AI-integrated applications across industries including gaming, fintech, IoT, and human resources. Before that, I spent more than a decade teaching Electronics and Physics at university level — an experience that shaped how I approach complex problems: methodically, clearly, and always with the end user in mind.",
-        "In my recent roles I have led backend teams, reduced AWS infrastructure costs by over 30%, cut Docker build times in half, and integrated computer vision products into production systems. I am comfortable working across the full development lifecycle — from architecture decisions and code reviews to CI/CD automation and observability. I value clean code, testability, and well-defined boundaries between system components.",
-        "I am particularly drawn to roles where technical depth matters and where I can contribute meaningfully from day one. I work remotely from Patagonia, Argentina, and have done so successfully with distributed teams across the US, Europe, and Latin America.",
-        "Thank you for your time. I would welcome the opportunity to discuss how my background fits your team's needs."
+        "I've worked with startups on and off for the last few years. I'm all for moving fast, but I'm always asking what breaks at scale and whether the codebase will survive once the sprint is over. So I push for observability and reliability early, whenever possible.",
+        "At MecanTronic I led the team's adoption of AI-assisted development, and adoption of security best practices. At EPIC iO I help productize Computer Vision systems for performance, and I helped define where the 10x factor is realistic and where it isn't; that distinction matters as much as the gains.",
+        "Stack: Python (FastAPI/Flask), AWS, PostgreSQL/MySQL, Docker, Terraform. On the AI side: built an LLM content generation system, led a RAG PoC on enterprise data. Neither was perfect, but both taught me what production AI actually requires.",
+        "I've worked with English-speaking teams across multiple timezones without issues."
     ],
     "sender_signature": "Gianfranco Salomone",
     "sender_email": "gianfranco.s@gmail.com",
     "contact_address": null,
-    "final_greeting": "Sincerely,"
+    "final_greeting": "Happy to chat if it sounds like a fit.,"
 }

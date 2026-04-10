@@ -39,6 +39,17 @@ app = FastAPI(title="Auth Service", lifespan=lifespan)
 
 @app.post("/v1/auth/token")
 async def login(request: Request, form: OAuth2PasswordRequestForm = Depends()):
+    """Issue a JWT bearer token for valid credentials.
+
+    Accepts an OAuth2 password grant form (``application/x-www-form-urlencoded``)
+    and returns a signed JWT on success.
+
+    Raises 401 if the username is unknown or the password does not match.
+
+    Note: valid users and their plain-text passwords are loaded at startup from
+    the ``USERS`` environment variable (e.g. ``USERS=alice:pass1,bob:pass2``).
+    There is currently no user store — credentials live entirely in the environment.
+    """
     existing_users: dict = request.app.state.users
     hashed = existing_users.get(form.username)
     if not hashed or not bcrypt.checkpw(form.password.encode(), hashed):
