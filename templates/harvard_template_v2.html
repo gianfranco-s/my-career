@@ -150,8 +150,8 @@
         {% for job in cv.work %}
         <div class="entry">
             <div class="entry-row">
-                <span class="entry-left">{{ job.position }} <span style="font-weight: normal;">- {{ job.name }}</span></span>
-                <span style="font-size: 10.5pt; white-space: nowrap; margin-left: 10px;">{{ job.startDateFormatted }} - {{ job.endDateFormatted }}{% if job.isRemote %} | Remote{% endif %}{% if job.location %} | {{ job.location }}{% endif %}</span>
+                <span class="entry-left">{{ job.position }}, <span style="font-weight: normal;">{{ job.name }}{% if job.location %}, {{ job.location }}{% endif %}{% if job.isRemote %}, Remote{% endif %}</span></span>
+                <span style="font-size: 10.5pt; white-space: nowrap; margin-left: 10px;">{{ job.startDateFormatted }} - {{ job.endDateFormatted }}</span>
             </div>
             {% if job.highlights %}
             <ul class="bullets">

@@ -35,6 +35,19 @@
             "education",
             "skills",
             "languages"
-        ]
+        ],
+        "max_bullets": {
+            "EPIC iO": 5,
+            "MecanTronic": 5,
+            "Baitcon/AySA": 3,
+            "Freelance": 4
+        },
+        "max_skills": {
+            "Backend": 8,
+            "Cloud": 0,
+            "Observability": 4,
+            "Databases": 4,
+            "Tools": 0
+        }
     }
 ]

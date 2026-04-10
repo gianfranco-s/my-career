@@ -38,7 +38,7 @@
             "highlights": [
                 "Aivilo (2025): Implemented role-based access control (RBAC) across multiple customers, ensuring proper data access isolation between users and roles. (4mths)",
                 "AtticGames (2024): Built an LLM-based content generation system, addressing challenges in response consistency and prompt design for repeatable outputs. (4mths)",
-                "QuickGrill (2021): Developed Android app to control the grill’s fan. Implemented connectivity with ESP32 using C++ and Platform IO. (4mths)",
+                "QuickGrill (2021): Developed Android app to control the grill's fan. Implemented connectivity with ESP32 using C++ and Platform IO. (4mths)",
                 "Emissary Software (2021): Contributed to security compliance efforts and backend development, including third-party API integrations. (9mths)"
             ],
             "techHighlights": []
@@ -53,12 +53,11 @@
             "isRemote": true,
             "location": "US",
             "highlights": [
-                "Introduced asynchronous processing patterns to decouple API services from compute-heavy pipelines.",
                 "Standardized and hardened internal Computer Vision APIs, turning prototype endpoints into reliable, production-ready backend services.",
+                "Automated performance testing with Locust and Bitbucket pipelines.",
                 "Implemented observability and profiling using OpenTelemetry.",
-                "Cut building times by 50% by using Docker multi-stage.",
-                "Improved release times from 8hs to 2hs, by using Ansible.",
-                "Automated performance testing with Locust and Bitbucket pipelines."
+                "Improved release times from 8hs to 2hs, by using Docker multi-stage and Ansible.",
+                "Introduced asynchronous processing patterns to decouple API services from compute-heavy pipelines."
             ],
             "techHighlights": [
                 "Python",
@@ -87,11 +86,10 @@
             "isRemote": true,
             "location": "Buenos Aires",
             "highlights": [
-                "Designed backend infrastructure on AWS using Terraform, focusing on scalability, isolation, security and maintainability.",
+                "Designed backend infrastructure on AWS using Terraform, focusing on scalability, isolation, security and maintainability. Implemented CI/CD pipelines in AWS+GitHub.",
                 "Led adoption of Ports & Adapters architecture, replacing a fragmented Python/SQL approach.",
                 "Led adoption of AI-assisted development workflows across the team.",
                 "Reduced AWS legacy costs by 30%, while improving security posture.",
-                "Implemented CI/CD pipelines in AWS+GitHub.",
                 "Mentored teams into making their own design choices, while keeping global consistency."
             ],
             "techHighlights": [
@@ -446,25 +444,38 @@
             "keywords": [
                 "Python (FastAPI, Flask)",
                 "PyTest",
-                "Bash",
-                "Gstreamer",
-                "Pandas",
-                "Selenium",
-                "Gherkin",
-                "Cypress",
+                "bash",
                 "nginx",
-                "Ollama"
-            ]
-        },
-        {
-            "name": "Infrastructure",
-            "level": null,
-            "keywords": [
+                "Ollama",
                 "Docker",
                 "Ansible",
                 "Terraform",
                 "Kubernetes",
-                "AWS (IAM, S3, STS, SES, SecretsManager, ECR, Billing, AppRunner)"
+                "Selenium",
+                "Gstreamer",
+                "Pandas",
+                "Gherkin",
+                "Cypress",
+                "C/C++",
+                "Assembly"
+            ]
+        },
+        {
+            "name": "Cloud",
+            "level": null,
+            "keywords": [
+                "AWS IAM",
+                "AWS S3",
+                "AWS EC2",
+                "AWS STS",
+                "AWS SES",
+                "AWS SecretsManager",
+                "AWS SystemManager",
+                "AWS ECR",
+                "AWS Billing",
+                "AWS AppRunner",
+                "AWS LoadBalancer",
+                "AWS AutoScalingGroup"
             ]
         },
         {
