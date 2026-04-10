@@ -1,0 +1,17 @@
+services:
+
+  my-career:
+    image: my-career:v0.1.0
+    ports:
+      - "8000:8000"
+    command: uvicorn my_career.adapters.api.app:app --host 0.0.0.0 --port 8000 --reload
+    environment:
+      SOURCE_DIR: /resume
+      TEMPLATES_DIR: /templates
+      JWT_SECRET: ${JWT_SECRET}
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      RESUME_TEMPLATE_FILENAME: harvard_template_v2.html
+    volumes:
+      - ../my-resume:/resume:ro
+      - ../templates:/templates:ro
+      - ../src/my_career:/app/my_career
