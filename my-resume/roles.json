@@ -4,13 +4,50 @@
         "include": [
             "EPIC iO",
             "MecanTronic"
-        ]
+        ],
+        "include_education": [],
+        "include_sections": []
     },
     {
         "role": "teacher",
         "include": [
             "UNLZ - UNGS - FIE - UB",
             "Facultad de Ingeniería del Ejército"
-        ]
+        ],
+        "include_education": [],
+        "include_sections": []
+    },
+    {
+        "role": "backend-senior",
+        "include": [
+            "EPIC iO",
+            "MecanTronic",
+            "Baitcon/AySA",
+            "Freelance"
+        ],
+        "include_education": [
+            "Electronics Engineer",
+            "SAP Database Administrator",
+            "SAP Data Engineer"
+        ],
+        "include_sections": [
+            "work",
+            "education",
+            "skills",
+            "languages"
+        ],
+        "max_bullets": {
+            "EPIC iO": 5,
+            "MecanTronic": 5,
+            "Baitcon/AySA": 3,
+            "Freelance": 4
+        },
+        "max_skills": {
+            "Backend": 8,
+            "Cloud": 0,
+            "Observability": 4,
+            "Databases": 4,
+            "Tools": 0
+        }
     }
 ]
