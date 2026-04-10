@@ -53,7 +53,7 @@
             "isRemote": true,
             "location": "US",
             "highlights": [
-                "Standardized and hardened internal Computer Vision APIs, turning prototype endpoints into reliable, production-ready backend services.",
+                "Productized Computer Vision PoCs, by standardizing and and hardened internal  APIs, turning prototype endpoints into reliable, production-ready backend services.",
                 "Automated performance testing with Locust and Bitbucket pipelines.",
                 "Implemented observability and profiling using OpenTelemetry.",
                 "Improved release times from 8hs to 2hs, by using Docker multi-stage and Ansible.",
