@@ -1,0 +1,25 @@
+services:
+
+  my-career:
+    image: my-career:v0.1.0
+    ports:
+      - "8000:8000"
+    environment:
+      SOURCE_DIR: /resume
+      TEMPLATES_DIR: /templates
+      JWT_SECRET: ${JWT_SECRET}
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+    volumes:
+      - ../my-resume:/resume:ro
+      - ../templates:/templates:ro
+    depends_on:
+      - auth-service
+
+  auth-service:
+    image: career-auth-service
+    ports:
+      - "8001:8001"
+    environment:
+      USERS: admin:pass1
+      JWT_TTL_HOURS: 4368
+      JWT_SECRET: ${JWT_SECRET}
