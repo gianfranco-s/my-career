@@ -4,13 +4,34 @@
         "include": [
             "EPIC iO",
             "MecanTronic"
-        ]
+        ],
+        "include_education": [],
+        "include_sections": []
     },
     {
         "role": "teacher",
         "include": [
             "UNLZ - UNGS - FIE - UB",
             "Facultad de Ingeniería del Ejército"
+        ],
+        "include_education": [],
+        "include_sections": []
+    },
+    {
+        "role": "backend-senior",
+        "include": [
+            "EPIC iO",
+            "MecanTronic",
+            "Baitcon"
+        ],
+        "include_education": [
+            "Facultad de Ingeniería del Ejército"
+        ],
+        "include_sections": [
+            "work",
+            "education",
+            "skills",
+            "languages"
         ]
     }
 ]
