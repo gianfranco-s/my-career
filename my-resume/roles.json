@@ -22,7 +22,8 @@
         "include": [
             "EPIC iO",
             "MecanTronic",
-            "Baitcon/AySA"
+            "Baitcon/AySA",
+            "Freelance"
         ],
         "include_education": [
             "Electronics Engineer",

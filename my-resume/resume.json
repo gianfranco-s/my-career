@@ -27,6 +27,23 @@
     },
     "work": [
         {
+            "name": "Freelance",
+            "position": "Freelance developer",
+            "url": null,
+            "startDate": "2021-01-01",
+            "endDate": null,
+            "summary": "This role involves optimizing infrastructure, automating deployments, and integrating monitoring solutions to ensure the reliability and efficiency of AI applications.",
+            "isRemote": true,
+            "location": "Multiple locations",
+            "highlights": [
+                "Aivilo (2025): Implemented role-based access control (RBAC) across multiple customers, ensuring proper data access isolation between users and roles. (4mths)",
+                "AtticGames (2024): Built an LLM-based content generation system, addressing challenges in response consistency and prompt design for repeatable outputs. (4mths)",
+                "QuickGrill (2021): Developed Android app to control the grill’s fan. Implemented connectivity with ESP32 using C++ and Platform IO. (4mths)",
+                "Emissary Software (2021): Contributed to security compliance efforts and backend development, including third-party API integrations. (9mths)"
+            ],
+            "techHighlights": []
+        },
+        {
             "name": "EPIC iO",
             "position": "Backend AI Engineer",
             "url": "https://www.epicio.com/",
