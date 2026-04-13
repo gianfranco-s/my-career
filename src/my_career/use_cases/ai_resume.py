@@ -11,11 +11,10 @@ class AiResumeService:
         self.__service = resume_service
         self.__client = openai_client
 
-    def tailor_resume(self, job_description: JobDescription, role: str | None = None) -> FullResume:
-        resume = self.__service.get_filtered_resume(role) if role else self.__service.get_resume()
+    def tailor_resume(self, resume: FullResume, job_description: JobDescription) -> FullResume:
         tailor = OpenAiTailor(self.__client, PromptHandler(job_description))
         return tailor.get_tailored_resume(resume)
 
-    def tailor_resume_pdf(self, job_description: JobDescription, role: str | None = None) -> bytes:
-        tailored = self.tailor_resume(job_description, role)
+    def tailor_resume_pdf(self, resume: FullResume, job_description: JobDescription) -> bytes:
+        tailored = self.tailor_resume(resume, job_description)
         return self.__service.export_resume_pdf(tailored)
