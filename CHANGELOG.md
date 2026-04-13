@@ -1,3 +1,9 @@
+## v0.1.0
+
+### Added
+* [Adapter] Expose AI tailoring over HTTP
+* [Tests] Test cases for change management
+
 ## v0.0.4
 
 ### Changed
