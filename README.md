@@ -11,7 +11,7 @@ Self-hosted (mostly) project, to keep track of my work experience.
 **[DONE] Stage 3 API**: implement HTTP API to return roles, and filtered work experience. PDF needs to be able to be downloaded.  
 **[DONE] Stage 4 Security&Errors**: add authentication and authorization with JWT. Implement error handling and uniform responses.  
 **[DONE] Stage 5 Dockerize**: dockerize both auth-service and main API. Will be useful when deploying to Cloud environments.
-Stage 6 (AI over API): implement AI routes.  
+**[DONE] Stage 6 (AI over API)**: implement AI routes and testing.  
 Stage 7 (Cache): implement local cache for specific requests.  
 
 ## Run locally
@@ -35,7 +35,7 @@ curl -X POST http://localhost:8001/v1/auth/token \
 ### Build images
 
 ```bash
-docker buildx build -f docker/Dockerfile -t my-career:v0.1.0 .
+docker buildx build -f docker/Dockerfile --target production -t my-career:v0.1.0 .
 docker buildx build -f auth-service/Dockerfile -t career-auth-service:v0.1.0 auth-service/
 ```
 
@@ -43,6 +43,15 @@ docker buildx build -f auth-service/Dockerfile -t career-auth-service:v0.1.0 aut
 ```bash
 docker compose -f docker/docker-compose.yml up
 ```
+
+## Run tests
+
+```bash
+docker compose -f docker/docker-compose.test.yml run --rm test
+```
+
+The test stage builds an isolated image with dev dependencies and dummy env vars — no real OpenAI key or JWT secret required.
+
 
 ## Download PDF resume
 ```sh
