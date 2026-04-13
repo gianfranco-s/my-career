@@ -2,6 +2,10 @@ services:
 
   my-career:
     image: my-career:v0.1.0
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      target: production
     ports:
       - "8000:8000"
     environment:

@@ -1,6 +1,6 @@
 [project]
 name = "my-career"
-version = "0.0.4"
+version = "0.1.0"
 description = "Showcase of my full career"
 readme = "README.md"
 requires-python = ">=3.13"
@@ -12,4 +12,15 @@ dependencies = [
     "pyjwt>=2.12.1",
     "uvicorn>=0.42.0",
     "weasyprint>=68.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=9.0.3",
+    "pytest-mock>=3.15.1",
 ]

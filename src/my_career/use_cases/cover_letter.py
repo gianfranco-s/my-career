@@ -27,3 +27,6 @@ class CoverLetterService:
     def export_pdf(self, **kwargs) -> bytes:
         letter = self.get_updated_cover_letter(**kwargs) if kwargs else self.__cover_letter
         return self.__pdf_exporter.export_to_bytes(letter)
+
+    def export_letter_pdf(self, letter: CoverLetter) -> bytes:
+        return self.__pdf_exporter.export_to_bytes(letter)

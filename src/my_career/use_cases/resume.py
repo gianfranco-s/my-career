@@ -43,3 +43,6 @@ class ResumeService:
     def export_pdf(self, role: str | None = None) -> bytes:
         resume = self.get_filtered_resume(role) if role else self.__resume
         return self.__pdf_exporter.export_to_bytes(resume)
+
+    def export_resume_pdf(self, resume: FullResume) -> bytes:
+        return self.__pdf_exporter.export_to_bytes(resume)
